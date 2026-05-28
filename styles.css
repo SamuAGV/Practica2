@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.login-card {
+    background: white;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-card h1 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-row input, .form-row select, .form-row textarea {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-row textarea {
+    width: 100%;
+    font-family: inherit;
+}
+
+.btn-primary, .btn-logout {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover, .btn-logout:hover {
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background: #dc3545;
+    margin-left: 15px;
+}
+
+.header {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.patient-info {
+    background: #f0f4ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.historial-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.consulta-item {
+    background: #f9f9f9;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.consulta-fecha {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
+.consulta-evolucion {
+    margin: 8px 0;
+    color: #555;
+}
+
+.consulta-plan {
+    color: #333;
+    font-style: italic;
+}
+
+.btn-editar {
+    background: #ffc107;
+    color: #333;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.btn-editar:hover {
+    background: #e0a800;
+}
+
+.error {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.success {
+    color: #28a745;
+    margin-top: 10px;
+    font-size: 14px;
+}

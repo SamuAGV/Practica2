@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriVJ - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <h1>NutriSAGV</h1>
+            <h2>Clínica de Nutrición</h2>
+            <p>Ingrese su nombre para comenzar la consulta</p>
+            <input type="text" id="nombreNutriologo" placeholder="Nombre del nutriólogo" autocomplete="off">
+            <button id="btnLogin">Firmar Entrada</button>
+            <div id="errorMsg" class="error"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { login } from './js/modules/auth.js';
+        document.getElementById('btnLogin').addEventListener('click', login);
+        document.getElementById('nombreNutriologo').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') login();
+        });
+    </script>
+</body>
+</html>

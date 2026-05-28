@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriVJ - Panel Clínico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NutriSAGV</h1>
+            <div class="user-info">
+                <span id="nombreNutri"></span>
+                <button id="btnLogout" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <!-- Sección de Registro de Paciente -->
+        <div class="card">
+            <h2>Registrar Nuevo Paciente</h2>
+            <div class="form-row">
+                <input type="text" id="pacienteNombre" placeholder="Nombre completo">
+                <input type="number" id="pacienteEdad" placeholder="Edad">
+                <input type="number" id="pacientePeso" placeholder="Peso (kg)" step="0.1">
+                <input type="number" id="pacienteAltura" placeholder="Altura (m)" step="0.01">
+                <button id="btnRegistrarPaciente" class="btn-primary">Registrar Paciente</button>
+            </div>
+            <div id="pacienteMsg" class="success"></div>
+        </div>
+
+        <!-- Sección de Consultas -->
+        <div class="card">
+            <h2>🩺 Consulta del Día</h2>
+            <div class="form-row">
+                <select id="selectPaciente">
+                    <option value="">-- Seleccionar paciente --</option>
+                </select>
+            </div>
+            <div id="infoPaciente" class="patient-info"></div>
+            <div class="form-row">
+                <input type="text" id="evolucion" placeholder="Evolución del paciente">
+                <textarea id="planAlimentacion" placeholder="Plan de alimentación" rows="3"></textarea>
+                <button id="btnGuardarConsulta" class="btn-primary">Guardar Consulta</button>
+            </div>
+            <div id="consultaMsg" class="success"></div>
+        </div>
+
+        <!-- Historial de Consultas -->
+        <div class="card">
+            <h2>Historial Clínico</h2>
+            <div id="historial" class="historial-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
