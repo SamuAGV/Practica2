@@ -1,6 +1,6 @@
-// Claves de localStorage
 const PACIENTES_KEY = 'nutri_pacientes';
 const CONSULTAS_KEY = 'nutri_consultas';
+const CITAS_KEY = 'nutri_citas';
 
 export function getPacientes() {
     const data = localStorage.getItem(PACIENTES_KEY);
@@ -20,6 +20,15 @@ export function saveConsultas(consultas) {
     localStorage.setItem(CONSULTAS_KEY, JSON.stringify(consultas));
 }
 
+export function getCitas() {
+    const data = localStorage.getItem(CITAS_KEY);
+    return data ? JSON.parse(data) : [];
+}
+
+export function saveCitas(citas) {
+    localStorage.setItem(CITAS_KEY, JSON.stringify(citas));
+}
+
 export function agregarPaciente(paciente) {
     const pacientes = getPacientes();
     pacientes.push(paciente);
@@ -32,22 +41,40 @@ export function agregarConsulta(consulta) {
     saveConsultas(consultas);
 }
 
+export function agregarCita(cita) {
+    const citas = getCitas();
+    citas.push(cita);
+    saveCitas(citas);
+}
+
 export function actualizarConsulta(consultaActualizada) {
     let consultas = getConsultas();
     consultas = consultas.map(c => c.id === consultaActualizada.id ? consultaActualizada : c);
     saveConsultas(consultas);
 }
 
+export function eliminarCita(citaId) {
+    let citas = getCitas();
+    citas = citas.filter(c => c.id !== citaId);
+    saveCitas(citas);
+}
+
 export function getConsultasByPaciente(pacienteId) {
     const consultas = getConsultas();
     return consultas.filter(c => c.pacienteId === pacienteId).sort((a, b) => {
-        // Ordenar por fecha más reciente primero
         return new Date(b.fecha + ' ' + b.hora) - new Date(a.fecha + ' ' + a.hora);
     });
 }
 
+export function getCitasPendientes() {
+    const citas = getCitas();
+    const hoy = new Date().toISOString().split('T')[0];
+    return citas.filter(c => c.estado === 'pendiente').sort((a, b) => {
+        return new Date(a.fecha + ' ' + a.hora) - new Date(b.fecha + ' ' + b.hora);
+    });
+}
+
 export function cargarDatosIniciales() {
-    // Inicializar con datos de ejemplo si está vacío
     if (getPacientes().length === 0) {
         const pacienteEjemplo = {
             id: 'p1',
@@ -69,6 +96,16 @@ export function cargarDatosIniciales() {
             plan: 'Dieta mediterránea, 3 comidas diarias'
         };
         agregarConsulta(consultaEjemplo);
+        
+        const citaEjemplo = {
+            id: 'cit1',
+            pacienteId: 'p1',
+            pacienteNombre: 'María González',
+            fecha: '2026-06-05',
+            hora: '11:00',
+            motivo: 'Control de seguimiento',
+            estado: 'pendiente'
+        };
+        agregarCita(citaEjemplo);
     }
 }
-

@@ -13,20 +13,19 @@ export function guardarConsulta() {
     
     if (!pacienteId) {
         msgDiv.textContent = 'Seleccione un paciente';
-        msgDiv.style.color = '#dc3545';
+        msgDiv.style.color = '#e74c3c';
         return;
     }
     
     if (!evolucion || !planAlimentacion) {
         msgDiv.textContent = 'Complete evolución y plan de alimentación';
-        msgDiv.style.color = '#dc3545';
+        msgDiv.style.color = '#e74c3c';
         return;
     }
     
     const { fecha, hora } = obtenerFechaHoraActual();
     
     if (editandoConsultaId) {
-        // Editar consulta existente
         const consultaActualizada = {
             id: editandoConsultaId,
             pacienteId,
@@ -40,7 +39,6 @@ export function guardarConsulta() {
         editandoConsultaId = null;
         document.getElementById('btnGuardarConsulta').textContent = 'Guardar Consulta';
     } else {
-        // Nueva consulta
         const nuevaConsulta = {
             id: Date.now().toString(),
             pacienteId,
@@ -53,13 +51,11 @@ export function guardarConsulta() {
         msgDiv.textContent = 'Consulta guardada correctamente';
     }
     
-    msgDiv.style.color = '#28a745';
+    msgDiv.style.color = '#2ecc71';
     
-    // Limpiar formulario
     document.getElementById('evolucion').value = '';
     document.getElementById('planAlimentacion').value = '';
     
-    // Actualizar historial
     cargarHistorial(pacienteId);
     
     setTimeout(() => msgDiv.textContent = '', 3000);
@@ -77,7 +73,6 @@ export function editarConsulta(consultaId) {
         editandoConsultaId = consultaId;
         document.getElementById('btnGuardarConsulta').textContent = 'Guardar Cambios';
         
-        // Mostrar información del paciente
         const paciente = getPacienteById(consulta.pacienteId);
         if (paciente) {
             const infoDiv = document.getElementById('infoPaciente');
@@ -90,8 +85,8 @@ export function editarConsulta(consultaId) {
             `;
         }
         
-        document.getElementById('consultaMsg').textContent = 'Editando consulta...';
-        document.getElementById('consultaMsg').style.color = '#ffc107';
+        document.getElementById('consultaMsg').textContent = '✏️ Editando consulta...';
+        document.getElementById('consultaMsg').style.color = '#f39c12';
     }
 }
 

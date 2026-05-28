@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriVJ - Panel Clínico</title>
+    <title>NutriSAGV - Panel Clínico</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,7 +16,6 @@
             </div>
         </div>
 
-        <!-- Sección de Registro de Paciente -->
         <div class="card">
             <h2>Registrar Nuevo Paciente</h2>
             <div class="form-row">
@@ -24,14 +23,27 @@
                 <input type="number" id="pacienteEdad" placeholder="Edad">
                 <input type="number" id="pacientePeso" placeholder="Peso (kg)" step="0.1">
                 <input type="number" id="pacienteAltura" placeholder="Altura (m)" step="0.01">
-                <button id="btnRegistrarPaciente" class="btn-primary">Registrar Paciente</button>
+                <button id="btnRegistrarPaciente" class="btn-primary">Registrar</button>
             </div>
             <div id="pacienteMsg" class="success"></div>
         </div>
 
-        <!-- Sección de Consultas -->
         <div class="card">
-            <h2>🩺 Consulta del Día</h2>
+            <h2>Agenda de Citas</h2>
+            <div class="form-row">
+                <select id="selectPacienteCita">
+                    <option value="">-- Seleccionar paciente --</option>
+                </select>
+                <input type="date" id="citaFecha">
+                <input type="time" id="citaHora">
+                <input type="text" id="citaMotivo" placeholder="Motivo de la cita">
+                <button id="btnAgendarCita" class="btn-secondary">Agendar Cita</button>
+            </div>
+            <div id="citasPendientes" class="citas-container"></div>
+        </div>
+
+        <div class="card">
+            <h2>Consulta del Día</h2>
             <div class="form-row">
                 <select id="selectPaciente">
                     <option value="">-- Seleccionar paciente --</option>
@@ -46,7 +58,6 @@
             <div id="consultaMsg" class="success"></div>
         </div>
 
-        <!-- Historial de Consultas -->
         <div class="card">
             <h2>Historial Clínico</h2>
             <div id="historial" class="historial-container"></div>

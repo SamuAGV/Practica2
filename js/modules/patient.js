@@ -1,17 +1,23 @@
-import { getPacientes, agregarPaciente, savePacientes } from './storage.js';
+import { getPacientes, agregarPaciente } from './storage.js';
 import { calcularIMC, obtenerDiagnostico } from './helpers.js';
-import { cargarSelectPacientes } from './ui.js';
+import { cargarSelectPacientes, cargarSelectPacientesCitas } from './ui.js';
 
 export function registrarPaciente() {
     const nombre = document.getElementById('pacienteNombre').value.trim();
     const edad = parseInt(document.getElementById('pacienteEdad').value);
-    const peso = parseFloat(document.getElementById('pacientePeso').value);
-    const altura = parseFloat(document.getElementById('pacienteAltura').value);
+    let peso = parseFloat(document.getElementById('pacientePeso').value);
+    let altura = parseFloat(document.getElementById('pacienteAltura').value);
     const msgDiv = document.getElementById('pacienteMsg');
     
     if (!nombre || isNaN(edad) || isNaN(peso) || isNaN(altura)) {
-        msgDiv.textContent = 'Complete todos los campos';
-        msgDiv.style.color = '#dc3545';
+        msgDiv.textContent = '❌ Complete todos los campos correctamente';
+        msgDiv.style.color = '#e74c3c';
+        return;
+    }
+    
+    if (altura <= 0 || peso <= 0) {
+        msgDiv.textContent = '❌ Peso y altura deben ser mayores a 0';
+        msgDiv.style.color = '#e74c3c';
         return;
     }
     
@@ -30,17 +36,17 @@ export function registrarPaciente() {
     
     agregarPaciente(paciente);
     
-    // Limpiar formulario
     document.getElementById('pacienteNombre').value = '';
     document.getElementById('pacienteEdad').value = '';
     document.getElementById('pacientePeso').value = '';
     document.getElementById('pacienteAltura').value = '';
     
-    msgDiv.textContent = `Paciente ${nombre} registrado. IMC: ${imc} (${diagnostico})`;
-    msgDiv.style.color = '#28a745';
+    msgDiv.textContent = `✅ ${nombre} registrado. IMC: ${imc} (${diagnostico})`;
+    msgDiv.style.color = '#2ecc71';
     
-    // Actualizar select de pacientes
     cargarSelectPacientes();
+    cargarSelectPacientesCitas();
+    cargarCitasPendientes();
     
     setTimeout(() => msgDiv.textContent = '', 3000);
 }
