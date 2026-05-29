@@ -80,5 +80,37 @@ export function limpiarTodosLosDatos() {
 }
 
 export function cargarDatosIniciales() {
-    
+    if (getPacientes().length === 0) {
+        const pacienteEjemplo = {
+            id: 'p1',
+            nombre: 'María González',
+            edad: 32,
+            peso: 68,
+            altura: 1.65,
+            imc: 24.98,
+            diagnostico: 'peso normal'
+        };
+        agregarPaciente(pacienteEjemplo);
+        
+        const consultaEjemplo = {
+            id: 'c1',
+            pacienteId: 'p1',
+            fecha: '2026-05-28',
+            hora: '10:30',
+            evolucion: 'Primera consulta. Paciente motivada.',
+            plan: 'Dieta mediterránea, 3 comidas diarias'
+        };
+        agregarConsulta(consultaEjemplo);
+        
+        const citaEjemplo = {
+            id: 'cit1',
+            pacienteId: 'p1',
+            pacienteNombre: 'María González',
+            fecha: '2026-06-05',
+            hora: '11:00',
+            motivo: 'Control de seguimiento',
+            estado: 'pendiente'
+        };
+        agregarCita(citaEjemplo);
+    }
 }
