@@ -73,7 +73,7 @@ export function renderizarHistorial(consultas) {
             <div class="consulta-plan">
                 <strong>Plan alimentación:</strong> ${consulta.plan}
             </div>
-            <button class="btn-editar" data-id="${consulta.id}">✏️ Editar</button>
+            <button class="btn-editar" data-id="${consulta.id}">Editar</button>
         </div>
     `).join('');
     
@@ -90,7 +90,7 @@ export function cargarCitasPendientesUI(citas) {
     const citasDiv = document.getElementById('citasPendientes');
     
     if (citas.length === 0) {
-        citasDiv.innerHTML = '<p style="color: #a0aec0; text-align: center; padding: 20px;">📭 No hay citas pendientes</p>';
+        citasDiv.innerHTML = '<p style="color: #a0aec0; text-align: center; padding: 20px;">No hay citas pendientes</p>';
         return;
     }
     
