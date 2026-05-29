@@ -23,7 +23,7 @@ Sistema web local para gestión de pacientes, consultas e historial clínico con
 4. Comenzar a registrar pacientes y consultas
 
 ## Demo en producción
-[URL de Netlify/Vercel - agregar aquí]
+https://practica2-alpha.vercel.app/
 
 ## Autores
 [Tu nombre]
