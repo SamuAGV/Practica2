@@ -85,7 +85,7 @@ export function editarConsulta(consultaId) {
             `;
         }
         
-        document.getElementById('consultaMsg').textContent = '✏️ Editando consulta...';
+        document.getElementById('consultaMsg').textContent = 'Editando consulta...';
         document.getElementById('consultaMsg').style.color = '#f39c12';
     }
 }

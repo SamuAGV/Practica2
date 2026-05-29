@@ -68,10 +68,15 @@ export function getConsultasByPaciente(pacienteId) {
 
 export function getCitasPendientes() {
     const citas = getCitas();
-    const hoy = new Date().toISOString().split('T')[0];
     return citas.filter(c => c.estado === 'pendiente').sort((a, b) => {
         return new Date(a.fecha + ' ' + a.hora) - new Date(b.fecha + ' ' + b.hora);
     });
+}
+
+export function limpiarTodosLosDatos() {
+    localStorage.removeItem(PACIENTES_KEY);
+    localStorage.removeItem(CONSULTAS_KEY);
+    localStorage.removeItem(CITAS_KEY);
 }
 
 export function cargarDatosIniciales() {

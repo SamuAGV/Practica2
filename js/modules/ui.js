@@ -73,7 +73,7 @@ export function renderizarHistorial(consultas) {
             <div class="consulta-plan">
                 <strong>Plan alimentación:</strong> ${consulta.plan}
             </div>
-            <button class="btn-editar" data-id="${consulta.id}">✏️ Editar</button>
+            <button class="btn-editar" data-id="${consulta.id}">Editar</button>
         </div>
     `).join('');
     
@@ -101,7 +101,7 @@ export function cargarCitasPendientesUI(citas) {
             </div>
             <div><strong>Paciente:</strong> ${cita.pacienteNombre}</div>
             <div class="cita-motivo"><strong>Motivo:</strong> ${cita.motivo}</div>
-            <button class="btn-completar" data-id="${cita.id}">✓ Completar</button>
+            <button class="btn-completar" data-id="${cita.id}">Completar</button>
         </div>
     `).join('');
     

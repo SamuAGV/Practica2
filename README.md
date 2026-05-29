@@ -3,7 +3,7 @@
 ## Descripción
 Sistema web local para gestión de pacientes, consultas e historial clínico con cálculo automático de IMC.
 
-## ✨ Funcionalidades
+## Funcionalidades
 - Login seguro con sessionStorage
 - Registro de pacientes con cálculo IMC y diagnóstico
 - Consultas médicas con evolución y plan alimentación
@@ -35,8 +35,8 @@ Sistema web local para gestión de pacientes, consultas e historial clínico con
 - Edición de consultas sin recargar página
 
 ## Criterios cumplidos
-✅ Separación de código (módulos ES6)
-✅ Control de datos (sessionStorage + localStorage)
-✅ Relación de datos por ID (cero duplicación)
-✅ Edición en tiempo real sin F5
-✅ Desplegado en la nube
+Separación de código (módulos ES6)
+Control de datos (sessionStorage + localStorage)
+Relación de datos por ID (cero duplicación)
+Edición en tiempo real sin F5
+Desplegado en la nube
