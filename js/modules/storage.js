@@ -53,6 +53,12 @@ export function actualizarConsulta(consultaActualizada) {
     saveConsultas(consultas);
 }
 
+export function actualizarCita(citaActualizada) {
+    let citas = getCitas();
+    citas = citas.map(c => c.id === citaActualizada.id ? citaActualizada : c);
+    saveCitas(citas);
+}
+
 export function eliminarCita(citaId) {
     let citas = getCitas();
     citas = citas.filter(c => c.id !== citaId);

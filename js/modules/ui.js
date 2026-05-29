@@ -1,7 +1,7 @@
 import { getPacientes } from './storage.js';
 import { getPacienteById } from './patient.js';
 import { editarConsulta } from './consultation.js';
-import { completarCita } from './appointments.js';
+import { completarCita, editarCita } from './appointments.js';
 
 export function cargarSelectPacientes() {
     const pacientes = getPacientes();
@@ -73,7 +73,7 @@ export function renderizarHistorial(consultas) {
             <div class="consulta-plan">
                 <strong>Plan alimentación:</strong> ${consulta.plan}
             </div>
-            <button class="btn-editar" data-id="${consulta.id}">Editar</button>
+            <button class="btn-editar" data-id="${consulta.id}">✏️ Editar</button>
         </div>
     `).join('');
     
@@ -90,20 +90,31 @@ export function cargarCitasPendientesUI(citas) {
     const citasDiv = document.getElementById('citasPendientes');
     
     if (citas.length === 0) {
-        citasDiv.innerHTML = '<p style="color: #a0aec0; text-align: center; padding: 20px;">No hay citas pendientes</p>';
+        citasDiv.innerHTML = '<p style="color: #a0aec0; text-align: center; padding: 20px;">📭 No hay citas pendientes</p>';
         return;
     }
     
     citasDiv.innerHTML = citas.map(cita => `
         <div class="cita-item">
             <div class="cita-fecha">
-                ${cita.fecha} -  ${cita.hora}
+                 ${cita.fecha} -  ${cita.hora}
             </div>
-            <div><strong>Paciente:</strong> ${cita.pacienteNombre}</div>
+            <div><strong> Paciente:</strong> ${cita.pacienteNombre}</div>
             <div class="cita-motivo"><strong>Motivo:</strong> ${cita.motivo}</div>
-            <button class="btn-completar" data-id="${cita.id}">Completar</button>
+            <div style="margin-top: 10px;">
+                <button class="btn-editar-cita" data-id="${cita.id}"> Editar</button>
+                <button class="btn-completar" data-id="${cita.id}"> Completar</button>
+            </div>
         </div>
     `).join('');
+    
+    document.querySelectorAll('.btn-editar-cita').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const citaId = btn.getAttribute('data-id');
+            editarCita(citaId);
+        });
+    });
     
     document.querySelectorAll('.btn-completar').forEach(btn => {
         btn.addEventListener('click', (e) => {

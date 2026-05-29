@@ -134,6 +134,23 @@ body {
     transform: translateY(-1px);
 }
 
+.btn-warning {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-warning:hover {
+    background: #e67e22;
+    transform: translateY(-1px);
+}
+
 .btn-logout {
     background: #e74c3c;
     color: white;
@@ -167,7 +184,7 @@ body {
     transform: translateY(-1px);
 }
 
-.btn-editar {
+.btn-editar, .btn-editar-cita {
     background: #f39c12;
     color: white;
     border: none;
@@ -177,9 +194,10 @@ body {
     font-size: 12px;
     font-weight: 500;
     transition: all 0.2s;
+    margin-right: 8px;
 }
 
-.btn-editar:hover {
+.btn-editar:hover, .btn-editar-cita:hover {
     background: #e67e22;
 }
 
@@ -192,7 +210,6 @@ body {
     cursor: pointer;
     font-size: 12px;
     font-weight: 500;
-    margin-left: 8px;
 }
 
 .btn-completar:hover {
