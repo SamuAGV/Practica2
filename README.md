@@ -1,4 +1,4 @@
-# NutriVJ - Sistema de Gestión Clínica para Nutriólogos
+# NutriSAGV - Sistema de Gestión Clínica para Nutriólogos
 
 ## Descripción
 Sistema web local para gestión de pacientes, consultas e historial clínico con cálculo automático de IMC.
